@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+#PBS -N UB0200 
+#PBS -l nodes=1:ppn=48
+#PBS -M J.Smith@example.com
+#PBS -q guest
+#PBS -p 1023
+#PBS -o out.$PBS_JOBID
+#PBS -e err.$PBS_JOBID
+# Start ex3
+
+module load mpi/openmpi-1.8.8-gnu
+cd $PBS_O_WORKDIR
+mpirun -np 48 sss2 FSOC.inp > t50
